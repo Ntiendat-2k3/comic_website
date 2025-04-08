@@ -23,7 +23,7 @@ const OTruyenService = {
 
   // Thể loại truyện
   getCategories: async (): Promise<Category[]> => {
-    const { data } = await apiClient.get("/the-loai");
+    const data = await apiClient.get("/the-loai");
     return data;
   },
 

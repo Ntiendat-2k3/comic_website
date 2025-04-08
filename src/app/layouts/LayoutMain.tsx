@@ -8,7 +8,10 @@ interface LayoutMainProps {
 }
 
 const LayoutMain = async ({ children }: LayoutMainProps) => {
+  // Không gọi trực tiếp trong Dropdown là để tối ưu cho SEO vì đây là server side  còn Dropdown là client side (cần useEffect, fetch)
+  // chỉ fetch 1 lần cho cả trang, k bị render nhiều lần
   const categories = await OTruyenService.getCategories();
+  console.log("🚀 ~ LayoutMain ~ categories:", categories);
 
   return (
     <div className="min-h-screen flex flex-col">

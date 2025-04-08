@@ -24,8 +24,8 @@ apiClient.interceptors.request.use(
 // Xử lý interceptor cho response
 apiClient.interceptors.response.use(
   (response) => {
-    console.log("API Response:", response.data.data.items);
-    return response.data;
+    // console.log("API Response:", response.data.data.items);
+    return response.data.data.items;
   },
   // (error) => {
   //   const { response } = error;
