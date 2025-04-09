@@ -29,7 +29,7 @@ const ComicCard = ({ comic, baseImageUrl }: ComicCardProps) => {
           <div className="flex flex-wrap gap-2 mt-2">
             {comic.category.map((cat) => (
               <span 
-                key={cat._id}
+                key={cat.slug}
                 className="px-2 py-1 bg-primary/80 text-xs rounded-full"
               >
                 {cat.name}

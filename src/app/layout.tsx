@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,28 +14,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Website Truyện Hay",
-  description: "Đọc truyện online...",
+  title: "TruyenHay",
+  description: "Đọc truyện tranh online",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  modal: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className="scroll-smooth"
-      suppressHydrationWarning
-      cz-shortcut-listen="true"
-    >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
           {children}
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

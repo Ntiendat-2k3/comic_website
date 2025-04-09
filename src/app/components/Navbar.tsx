@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import type { Category, Comic } from "../types";
 import OTruyenService from "../services/otruyen.service";
 import Search from "./Search";
+import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 
 const Dropdown = dynamic(() => import("./Dropdown"), {
   loading: () => <div className="w-40 h-6 bg-gray-100 animate-pulse" />,
@@ -19,6 +20,8 @@ const Navbar = ({ categories }: NavbarProps) => {
   const [searchResults, setSearchResults] = useState<Comic[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const { isSignedIn, user } = useUser();
+  console.log("🚀 ~ Navbar ~ user:", user)
 
   const handleSearch = useCallback(async (keyword: string) => {
     if (keyword.trim().length === 0) {
@@ -69,19 +72,35 @@ const Navbar = ({ categories }: NavbarProps) => {
           <Dropdown categories={categories} />
 
           {/* Các nút đăng nhập/đăng ký */}
-          <Link
-            href="/dang-nhap"
-            className="hover:opacity-80 transition-opacity px-3 py-2 rounded hover:bg-white/10"
-          >
-            Đăng nhập
-          </Link>
+          <div className="flex items-center gap-4">
+            {isSignedIn ? (
+              <>
+                <UserButton
+                  afterSignOutUrl="/"
+                  appearance={{
+                    elements: {
+                      userButtonBox: "flex-row-reverse",
+                      userButtonTrigger: "text-white hover:bg-white/10",
+                    },
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <SignInButton mode="modal">
+                  <button className="hover:opacity-80 transition-opacity px-3 py-2 rounded hover:bg-white/10">
+                    Đăng nhập
+                  </button>
+                </SignInButton>
 
-          <Link
-            href="/dang-ky"
-            className="bg-white text-primary px-4 py-2 rounded-md hover:bg-primary-light hover:text-white transition-colors"
-          >
-            Đăng ký
-          </Link>
+                <SignUpButton mode="modal">
+                  <button className="bg-white text-primary px-4 py-2 rounded-md hover:bg-primary-light hover:text-white transition-colors">
+                    Đăng ký
+                  </button>
+                </SignUpButton>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>
