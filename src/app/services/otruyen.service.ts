@@ -1,5 +1,14 @@
+import { AxiosResponse } from "axios";
 import apiClient from "../lib/api-client";
-import { Category, Comic } from "../types";
+import { 
+  ApiListResponse,
+  Category,
+  CategoryListResponse,
+  Comic,
+  HomeResponse,
+  Pagination,
+  SearchResponse
+} from "../types";
 
 type ComicListType =
   | "truyen-moi"
@@ -9,41 +18,46 @@ type ComicListType =
 
 const OTruyenService = {
   // Trang chủ
-  getHomeData: async (): Promise<{ featured: Comic[]; latest: Comic[] }> => {
-    return apiClient.get("/home");
+  getHomeData: async (): Promise<HomeResponse> => {
+    const response = await apiClient.get<HomeResponse>("/home");
+    return response.data;
   },
+
 
   // Danh sách truyện theo type
-  getComicList: async (
-    type: ComicListType = "truyen-moi",
-    page: number = 1
-  ): Promise<{ comics: Comic[]; totalPages: number }> => {
-    return apiClient.get(`/danh-sach/${type}?page=${page}`);
-  },
+  // getComicList: async (
+  //   type: ComicListType = "truyen-moi",
+  //   page: number = 1
+  // ): Promise<ApiListResponse> => {
+  //   return apiClient.get<ApiListResponse>(`/danh-sach/${type}?page=${page}`);
+  // },
 
   // Thể loại truyện
-  getCategories: async (): Promise<Category[]> => {
-    const data = await apiClient.get("/the-loai");
-    return data;
-  },
+    getCategories: async (): Promise<Category[]> => {
+      const response = await apiClient.get<CategoryListResponse>("/the-loai");
+      return response.data.data.items; 
+    },
 
-  // Truyện theo thể loại
-  getComicsByCategory: async (
-    slug: string,
-    page: number = 1
-  ): Promise<Category> => {
-    return apiClient.get(`/the-loai/${slug}?page=${page}`);
-  },
+  // // Truyện theo thể loại
+  // getComicsByCategory: async (
+  //   slug: string,
+  //   page: number = 1
+  // ): Promise<ApiListResponse> => {
+  //   return apiClient.get<ApiListResponse>(`/the-loai/${slug}?page=${page}`);
+  // },
 
-  // Chi tiết truyện
-  getComicDetail: async (slug: string): Promise<Comic> => {
-    return apiClient.get(`/truyen-tranh/${slug}`);
-  },
+  // // Chi tiết truyện
+  // getComicDetail: async (slug: string): Promise<Comic> => {
+  //   const response = await apiClient.get<ApiListResponse>(`/truyen-tranh/${slug}`);
+  //   return response.data.items[0];
+  // },
 
   // Tìm kiếm
-  searchComics: async (keyword: string): Promise<Comic[]> => {
-    return apiClient.get(`/tim-kiem?keyword=${encodeURIComponent(keyword)}`);
-  },
+  searchComics: async (keyword: string): Promise<AxiosResponse<SearchResponse>> => {
+    return apiClient.get<SearchResponse>(
+      `/tim-kiem?keyword=${encodeURIComponent(keyword)}&limit=10`
+    );
+  }
 };
 
 export default OTruyenService;

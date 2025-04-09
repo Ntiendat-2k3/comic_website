@@ -14,7 +14,11 @@ export default {
           DEFAULT: "#001f3f", // Xanh than đen
           light: "#26374a", // Màu nhạt hơn
           dark: "#000f20", // Màu đậm hơn
+          accent: '#38bdf8',
         },
+      },
+      backgroundImage: {
+        'dark-gradient': 'linear-gradient(to right, #020617, #0f172a, #1e293b)',
       },
       // Giới hạn max-width container = 1200px
       container: {

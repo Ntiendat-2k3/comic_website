@@ -10,3 +10,48 @@ code,
 pre {
   font-family: var(--font-geist-mono);
 }
+
+img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+/* Tạo hiệu ứng chạy vô tạn không khoảng trống */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  padding-left: 100%; /* Bắt đầu từ bên phải ngoài màn hình */
+  will-change: transform;
+}
+
+/* Tạo bản sao nội dung */
+.marquee-content::after {
+  content: attr(data-content);
+  display: inline-block;
+  padding-left: 50px; /* Khoảng cách giữa 2 bản sao */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* Dịch chuyển đúng 100% chiều dài nội dung */
+  }
+}
+

@@ -21,21 +21,12 @@ apiClient.interceptors.request.use(
   }
 );
 
-// Xử lý interceptor cho response
 apiClient.interceptors.response.use(
   (response) => {
-    // console.log("API Response:", response.data.data.items);
-    return response.data.data.items;
+    return response;
   },
-  // (error) => {
-  //   const { response } = error;
-  //   if (response?.status === 401) {
-  //     // Xử lý logout khi hết hạn token
-  //   }
-  //   return Promise.reject(error);
-  // }
   (error) => {
-    console.error("API Error:", error.response?.data || error.message);
+    console.error(error);
     return Promise.reject(error);
   }
 );
