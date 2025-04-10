@@ -21,7 +21,7 @@ const Navbar = ({ categories }: NavbarProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const { isSignedIn, user } = useUser();
-  console.log("🚀 ~ Navbar ~ user:", user)
+  console.log("🚀 ~ Navbar ~ user:", user);
 
   const handleSearch = useCallback(async (keyword: string) => {
     if (keyword.trim().length === 0) {
@@ -45,8 +45,8 @@ const Navbar = ({ categories }: NavbarProps) => {
     <nav className="w-full bg-primary text-white shadow-md">
       <div className="container px-4 py-2 flex items-center justify-between">
         {/* Phần logo */}
-        <div className="flex items-center space-x-2">
-          <Link href="/">
+        <div className="flex items-center space-x-2 py-4">
+          {/* <Link href="/">
             <Image
               src="/assets/logo.png"
               alt="Logo"
@@ -54,8 +54,10 @@ const Navbar = ({ categories }: NavbarProps) => {
               height={60}
               className="h-15 w-16 object-contain"
             />
-          </Link>
-          <span className="font-bold text-xl">TruyenHay</span>
+          </Link> */}
+          <span className="font-love font-bold text-3xl animate-gradient bg-clip-text text-transparent bg-[length:200%] bg-[linear-gradient(90deg,#4f46e5,#ec4899,#4f46e5)]">
+            TruyenHay
+          </span>
         </div>
 
         {/* Phần chức năng */}
@@ -75,12 +77,14 @@ const Navbar = ({ categories }: NavbarProps) => {
           <div className="flex items-center gap-4">
             {isSignedIn ? (
               <>
+                <span>Hi, {user?.fullName}</span>
                 <UserButton
                   afterSignOutUrl="/"
                   appearance={{
                     elements: {
                       userButtonBox: "flex-row-reverse",
-                      userButtonTrigger: "text-white hover:bg-white/10",
+                      userButtonAvatarBox: "size-11",
+                      userButtonTrigger: "text-white hover:bg-white/10 size-10",
                     },
                   }}
                 />

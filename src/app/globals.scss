@@ -55,3 +55,26 @@ input {
   }
 }
 
+// Custom clerk
+.cl-userButtonPopoverActionButton__manageAccount.cl-button__manageAccount,
+.cl-internal-1hp5nqm, .cl-internal-1dauvpw {
+  display: none !important;
+}
+
+/* Tùy chỉnh scrollbar cho tất cả các phần tử trong trang */
+::-webkit-scrollbar {
+  width: 5px; /* Độ rộng thanh scrollbar */
+  height: 8px; /* Chiều cao thanh scrollbar (cho scrollbar ngang) */
+}
+
+/* Tùy chỉnh phần tay cầm của thanh scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: #8B008B; /* Màu tối cho tay cầm */
+  border-radius: 10px; /* Làm tròn tay cầm */
+}
+
+/* Tùy chỉnh thanh track (nền của thanh scrollbar) */
+::-webkit-scrollbar-track {
+  background-color: #444; /* Màu tối cho nền */
+  border-radius: 10px; /* Làm tròn nền */
+}

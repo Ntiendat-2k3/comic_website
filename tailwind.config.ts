@@ -20,6 +20,18 @@ export default {
       backgroundImage: {
         'dark-gradient': 'linear-gradient(to right, #020617, #0f172a, #1e293b)',
       },
+      animation: {
+        gradient: 'gradient 3s linear infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%': { 'background-position': '0% 50%' },
+          '100%': { 'background-position': '100% 50%' },
+        },
+      },
+      fontFamily: {
+        love: ["'Love Ya Like A Sister', cursive"],  
+      },
       // Giới hạn max-width container = 1200px
       container: {
         center: true,
