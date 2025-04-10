@@ -1,7 +1,5 @@
 "use client";
 import { useState, useCallback } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import type { Category, Comic } from "../types";
 import OTruyenService from "../services/otruyen.service";
@@ -62,7 +60,7 @@ const Navbar = ({ categories }: NavbarProps) => {
 
         {/* Phần chức năng */}
         <div className="flex items-center gap-6">
-          {/* Component tìm kiếm */}
+          {/* tìm kiếm */}
           <Search
             searchResults={searchResults}
             isLoading={isLoading}

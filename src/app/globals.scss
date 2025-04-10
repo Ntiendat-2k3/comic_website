@@ -24,6 +24,34 @@ input {
   border: none;
 }
 
+.border-animation {
+  --border-angle: 0deg;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background: 
+    linear-gradient(var(--bg-primary-dark, #1a365d)) padding-box,
+    conic-gradient(
+      from var(--border-angle),
+      #4f46e5,
+      #ec4899,
+      #eab308,
+      #4f46e5
+    ) border-box;
+  animation: border-spin 3s linear infinite;
+}
+
+@keyframes border-spin {
+  from { --border-angle: 0deg; }
+  to { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 /* Tạo hiệu ứng chạy vô tạn không khoảng trống */
 .marquee-container {
   overflow: hidden;

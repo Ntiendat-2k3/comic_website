@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <LayoutMain>
       <div className="container mx-auto px-4 py-6">
-        <div className="bg-primary-dark p-3 mb-8 rounded-lg shadow-lg">
+        <div className="bg-primary-dark p-3 mb-8 rounded-lg shadow-lg border-animation">
           <h1 className="text-xl font-semibold text-white marquee-container">
             <span
               className="marquee-content"
