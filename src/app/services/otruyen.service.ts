@@ -3,6 +3,7 @@ import apiClient from "../lib/api-client";
 import { 
   Category,
   CategoryListResponse,
+  ComicDetailResponse,
   HomeResponse,
   SearchResponse
 } from "../types";
@@ -44,10 +45,10 @@ const OTruyenService = {
   // },
 
   // // Chi tiết truyện
-  // getComicDetail: async (slug: string): Promise<Comic> => {
-  //   const response = await apiClient.get<ApiListResponse>(`/truyen-tranh/${slug}`);
-  //   return response.data.items[0];
-  // },
+  getComicDetail: async (slug: string): Promise<ComicDetailResponse> => {
+    const response = await apiClient.get<ComicDetailResponse>(`/truyen-tranh/${slug}`);
+    return response.data;
+  },
 
   // Tìm kiếm
   searchComics: async (keyword: string): Promise<AxiosResponse<SearchResponse>> => {

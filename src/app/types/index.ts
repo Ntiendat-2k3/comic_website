@@ -16,12 +16,18 @@ export interface Comic {
   name: string;
   slug: string;
   origin_name: string[];
+  content: string;
   status: string;
   thumb_url: string;
   sub_docquyen: boolean;
+  author: string[];
   category: Category[];
+  chapters: ChapterServer[];
   updatedAt: string;
-  chaptersLatest?: Chapter[];
+}
+export interface ChapterServer {
+  server_name: string;
+  server_data: Chapter[];
 }
 
 export interface Pagination {
@@ -98,5 +104,33 @@ export interface SearchResponse {
     }>;
     titlePage: string;
     items: Comic[];
+  };
+}
+
+export interface ComicDetailResponse {
+  status: string;
+  message: string;
+  data: {
+    seoOnPage: {
+      og_type: string;
+      titleHead: string;
+      seoSchema: any;
+      descriptionHead: string;
+      og_image: string[];
+      updated_time: number;
+      og_url: string;
+    };
+    breadCrumb: Array<{
+      name: string;
+      slug?: string;
+      position: number;
+      isCurrent?: boolean;
+    }>;
+    params: {
+      slug: string;
+      crawl_check_url: string;
+    };
+    item: Comic;
+    APP_DOMAIN_CDN_IMAGE: string;
   };
 }

@@ -19,7 +19,6 @@ const Navbar = ({ categories }: NavbarProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const { isSignedIn, user } = useUser();
-  console.log("🚀 ~ Navbar ~ user:", user);
 
   const handleSearch = useCallback(async (keyword: string) => {
     if (keyword.trim().length === 0) {

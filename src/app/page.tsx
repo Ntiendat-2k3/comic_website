@@ -5,7 +5,6 @@ import OTruyenService from "./services/otruyen.service";
 export default async function Home() {
   const { data } = await OTruyenService.getHomeData();
 
-  // console.log("🚀 ~ Home ~ data:", data)
   return (
     <LayoutMain>
       <div className="container mx-auto px-4 py-6">
