@@ -1,20 +1,17 @@
 import { AxiosResponse } from "axios";
 import apiClient from "../lib/api-client";
 import { 
-  ApiListResponse,
   Category,
   CategoryListResponse,
-  Comic,
   HomeResponse,
-  Pagination,
   SearchResponse
 } from "../types";
 
-type ComicListType =
-  | "truyen-moi"
-  | "sap-ra-mat"
-  | "dang-phat-hanh"
-  | "hoan-thanh";
+// type ComicListType =
+//   | "truyen-moi"
+//   | "sap-ra-mat"
+//   | "dang-phat-hanh"
+//   | "hoan-thanh";
 
 const OTruyenService = {
   // Trang chủ

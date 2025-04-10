@@ -1,7 +1,11 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import { useState } from "react";
 
-const ImageFallback = ({ src, alt, ...props }: any) => {
+interface ImageFallbackProps extends ImageProps {
+  alt: string; 
+}
+
+const ImageFallback = ({ src, alt, ...props }: ImageFallbackProps) => {
   const [error, setError] = useState(false);
 
   if (error) {
@@ -13,7 +17,12 @@ const ImageFallback = ({ src, alt, ...props }: any) => {
   }
 
   return (
-    <Image {...props} src={src} alt={alt} onError={() => setError(true)} />
+    <Image
+      {...props}
+      src={src}
+      alt={alt}
+      onError={() => setError(true)}
+    />
   );
 };
 

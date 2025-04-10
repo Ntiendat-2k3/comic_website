@@ -36,7 +36,7 @@ const Search = memo(({
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [setShowSuggestions]);
 
   // Hàm debounce search    
   const debouncedSearch = debounce(onSearch, 500);
@@ -108,5 +108,7 @@ const Search = memo(({
     </div>
   );
 });
+
+Search.displayName = "Search";
 
 export default Search;
