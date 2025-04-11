@@ -6,6 +6,7 @@ import Search from "./Search";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { Category } from "../types/common";
 import { Comic } from "../types/comic";
+import Link from "next/link";
 
 const Dropdown = dynamic(() => import("./Dropdown"), {
   loading: () => <div className="w-40 h-6 bg-gray-100 animate-pulse" />,
@@ -43,7 +44,7 @@ const Navbar = ({ categories }: NavbarProps) => {
     <nav className="w-full bg-primary text-white shadow-md">
       <div className="container px-4 py-2 flex items-center justify-between">
         {/* Phần logo */}
-        <div className="flex items-center space-x-2 py-4">
+        <Link href="/" className="flex items-center space-x-2 py-4">
           {/* <Link href="/">
             <Image
               src="/assets/logo.png"
@@ -56,7 +57,7 @@ const Navbar = ({ categories }: NavbarProps) => {
           <span className="font-love font-bold text-3xl animate-gradient bg-clip-text text-transparent bg-[length:200%] bg-[linear-gradient(90deg,#4f46e5,#ec4899,#4f46e5)]">
             TruyenHay
           </span>
-        </div>
+        </Link>
 
         {/* Phần chức năng */}
         <div className="flex items-center gap-6">

@@ -1,10 +1,14 @@
-import { ComicDetailParams, ComicSEO, Comic as ComicType } from "./comic";
-import { BaseResponse, Category, Pagination } from "./common";
+import { Comic, ComicDetailParams, ComicSEO, Comic as ComicType } from "./comic";
+import { BaseResponse, Category, HomeParams, Pagination } from "./common";
 
 export interface HomeResponse extends BaseResponse {
+  status: string
+  message: string
+  items: Comic[]
   data: {
     seoOnPage: ComicSEO;
     items: ComicType[];
+    params: HomeParams;
   };
 }
 

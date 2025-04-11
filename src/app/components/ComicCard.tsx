@@ -18,6 +18,7 @@ const ComicCard = ({ comic, baseImageUrl }: ComicCardProps) => {
             width={600}
             height={800}
             className="object-cover w-full h-full"
+            priority
           />
         </div>
         

@@ -12,13 +12,16 @@
     "@clerk/nextjs": "^6.14.2",
     "@clerk/themes": "^2.0.0",
     "@headlessui/react": "^2.2.1",
+    "@tanstack/react-query": "^5.72.2",
     "axios": "^1.8.4",
     "framer-motion": "^12.6.3",
     "lodash": "^4.17.21",
     "next": "15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sass": "^1.83.4"
+    "react-paginate": "^8.3.0",
+    "sass": "^1.83.4",
+    "swr": "^2.3.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
