@@ -15,7 +15,14 @@ export interface Comic {
   chaptersLatest: Chapter[];
   updatedAt: string;
 }
-
+export interface SEOSchema {
+  "@context": string;
+  "@type": string;
+  name: string;
+  url: string;
+  image: string;
+  director?: string;
+}
 export interface ComicSEO {
   og_type: string;
   titleHead: string;
@@ -23,7 +30,7 @@ export interface ComicSEO {
   og_image: string[];
   updated_time?: number;
   og_url?: string;
-  seoSchema?: any;
+  seoSchema?: SEOSchema;
 }
 
 export interface ComicDetailParams {
