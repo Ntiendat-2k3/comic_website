@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Comic } from "../types";
+import { Comic } from "../types/comic";
 
 interface ComicCardProps {
   comic: Comic;

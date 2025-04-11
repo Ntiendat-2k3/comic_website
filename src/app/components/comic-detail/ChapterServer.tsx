@@ -1,4 +1,4 @@
-import { ChapterServer as ServerType } from "@/app/types";
+import { ChapterServer as ServerType } from "@/app/types/common";
 import ChapterItem from "./ChapterItem";
 
 interface ChapterServerProps {

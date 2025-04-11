@@ -1,4 +1,4 @@
-import { Chapter } from "@/app/types";
+import { Chapter } from "@/app/types/common";
 import Link from "next/link";
 
 interface ChapterItemProps {

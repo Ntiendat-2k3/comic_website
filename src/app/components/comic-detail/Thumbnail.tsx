@@ -7,7 +7,7 @@ interface ThumbnailProps {
 
 const Thumbnail = ({ src, alt }: ThumbnailProps) => (
   <div className="lg:w-1/3 w-full">
-    <div className="relative aspect-[2/3] rounded-xl overflow-hidden border-2 border-primary-dark shadow-xl">
+    <div className="relative aspect-[2/3] rounded-xl overflow-hidden border-2 border-primary-dark shadow-xl h-[500px]">
       <ImageFallback
         src={src}
         alt={alt}

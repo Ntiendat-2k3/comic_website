@@ -1,12 +1,7 @@
 import { AxiosResponse } from "axios";
 import apiClient from "../lib/api-client";
-import { 
-  Category,
-  CategoryListResponse,
-  ComicDetailResponse,
-  HomeResponse,
-  SearchResponse
-} from "../types";
+import { CategoryListResponse, ComicDetailResponse, HomeResponse, SearchResponse } from "../types/response";
+import { Category } from "../types/common";
 
 // type ComicListType =
 //   | "truyen-moi"

@@ -1,10 +1,5 @@
+import { Category } from "@/app/types/common";
 import Link from "next/link";
-
-interface Category {
-  _id: string;
-  slug: string;
-  name: string;
-}
 
 interface CategoriesListProps {
   categories: Category[];
