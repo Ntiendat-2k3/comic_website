@@ -11,16 +11,9 @@ import {
   Thumbnail,
 } from "@/app/components/comic-detail";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-  searchParams?: {
-    [key: string]: string | string[] | undefined;
-  };
-}
-export default async function ComicDetailPage({ params }: PageProps) {
-  const { slug } = params;
+
+export default async function ComicDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = await params;
   const { data } = await OTruyenService.getComicDetail(slug);
   const comic = data.item;
   const cdnUrl = data.APP_DOMAIN_CDN_IMAGE;
