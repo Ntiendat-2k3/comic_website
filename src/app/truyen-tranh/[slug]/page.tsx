@@ -10,15 +10,25 @@ import {
   SEOComic,
   Thumbnail,
 } from "@/app/components/comic-detail";
+import { unstable_cache } from 'next/cache'
 
 interface PageProps {
   params: {
     slug: string; 
   };
 }
+
+const getCachedComic = unstable_cache(
+  async (slug) => {
+    return OTruyenService.getComicDetail(slug)
+  },
+  ['comic-detail'],
+  { revalidate: 3600 }
+)
+
 export default async function ComicDetailPage({ params }: PageProps) {
   const { slug } = params;
-  const { data } = await OTruyenService.getComicDetail(slug);
+  const { data } = await getCachedComic(slug);
   const comic = data.item;
   const cdnUrl = data.APP_DOMAIN_CDN_IMAGE;
 

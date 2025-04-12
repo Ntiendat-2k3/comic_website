@@ -30,14 +30,14 @@ const Pagination = ({
       nextLabel="›"
       breakLabel="..."
       pageCount={pageCount}
-      forcePage={currentPage - 1} // Vì react-paginate bắt đầu từ 0
+      forcePage={currentPage - 1} 
       onPageChange={handlePageChange}
       containerClassName="flex justify-center items-center gap-2 mt-8"
-      pageClassName="flex items-center justify-center w-8 h-8 rounded border border-gray-200 hover:bg-gray-100"
+      pageClassName="flex items-center justify-center w-8 h-8 rounded hover:bg-gray-600 text-gray-200"
       pageLinkClassName="w-full h-full flex items-center justify-center"
       activeClassName="bg-blue-500 text-white border-blue-500"
-      previousClassName="flex items-center justify-center w-8 h-8 rounded border border-gray-200 hover:bg-gray-100"
-      nextClassName="flex items-center justify-center w-8 h-8 rounded border border-gray-200 hover:bg-gray-100"
+      previousClassName="flex items-center justify-center w-8 h-8 rounded bg-gray-100 hover:bg-gray-100"
+      nextClassName="flex items-center justify-center w-8 h-8 rounded bg-gray-100 hover:bg-gray-100"
       disabledClassName="opacity-50 cursor-not-allowed"
     />
   )
